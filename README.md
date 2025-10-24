@@ -52,7 +52,7 @@ $payment = new HostedPayment(
     9.99
 );
 
-$redirectUrl = $hppManager->generateInitializationRedirectUrlMODE_A($payment); 
+$redirectUrl = $hppManager->generateInitializationRedirectUrl($payment); 
 ```
 
 The `HostedPayment` is a mutable object containing payment data, it provides
