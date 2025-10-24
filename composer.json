@@ -1,6 +1,6 @@
 {
   "name": "genome/merchant",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Genome merchant client libraries",
   "type": "library",
   "license": "MIT",
