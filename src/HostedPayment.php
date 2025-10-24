@@ -28,6 +28,12 @@ class HostedPayment
     const FIRST_NAME = 'first_name';
     const LAST_NAME = 'last_name';
 
+    // Options
+    const SHOW_PHONE = 'show_phone';
+    const SHOW_EMAIL = 'show_email';
+    const SHOW_DESCRIPTION = 'show_description';
+    const SHOW_GDPR_AGREEMENT = 'show_gdpr_agreement';
+
     /**
      * @var array Hosted payment data.
      */
@@ -95,9 +101,13 @@ class HostedPayment
         $chunks = [];
         $reflection = new \ReflectionClass(HostedPayment::class);
         $constants = $reflection->getConstants();
-        foreach ($constants as $name => $value) {
+        foreach ($constants as $value) {
             if (isset($this->data[$value])) {
-                $chunks[$value] = $this->data[$value];
+                if (is_bool($this->data[$value])) {
+                    $chunks[$value] = $this->data[$value] ? 'true' : 'false';
+                } else {
+                    $chunks[$value] = $this->data[$value];
+                }
             }
         }
         $chunks = array_merge($chunks, $this->custom);
@@ -208,5 +218,25 @@ class HostedPayment
     public function getLastName(string $lastName): string
     {
         return $this->data[self::LAST_NAME];
+    }
+
+    public function setShowPhone(bool $showPhone): HostedPayment
+    {
+        return $this->set(self::SHOW_PHONE, $showPhone);
+    }
+
+    public function setShowEmail(bool $show): HostedPayment
+    {
+        return $this->set(self::SHOW_EMAIL, $show);
+    }
+
+    public function setShowGdprAgreement(bool $show): HostedPayment
+    {
+        return $this->set(self::SHOW_GDPR_AGREEMENT, $show);
+    }
+
+    public function setShowDescription(bool $show): HostedPayment
+    {
+        return $this->set(self::SHOW_DESCRIPTION, $show);
     }
 }
