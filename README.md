@@ -1,3 +1,7 @@
+# THIS REPOSITORY WAS MOVED TO https://github.com/genome-eu/php-merchant-client
+
+
+
 Genome Merchant Client Library
 ==============================
 
