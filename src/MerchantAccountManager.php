@@ -8,9 +8,9 @@ namespace Genome\Merchant;
 class MerchantAccountManager
 {
     /**
-     * @var int
+     * @var string
      */
-    private $accountId;
+    private $login;
 
     /**
      * @var string
@@ -25,13 +25,13 @@ class MerchantAccountManager
     /**
      * Constructor.
      *
-     * @param int $accountId Merchant account identifier.
+     * @param string $login Merchant login.
      * @param string $password Merchant password.
      * @param Environment|null $environment Environment settings.
      */
-    public function __construct(int $accountId, string $password, Environment $environment = null)
+    public function __construct(string $login, string $password, Environment $environment = null)
     {
-        $this->accountId = $accountId;
+        $this->login = $login;
         $this->password = $password;
         $this->environment = is_null($environment) ? Environment::getProduction() : $environment;
     }
@@ -45,11 +45,11 @@ class MerchantAccountManager
     }
 
     /**
-     * @return int Merchant account.
+     * @return string Merchant account login.
      */
-    public function getAccountId(): int
+    public function getLogin(): string
     {
-        return $this->accountId;
+        return $this->login;
     }
 
     /**

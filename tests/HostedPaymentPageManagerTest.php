@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class HostedPaymentPageManagerTest extends TestCase {
     public function testGenerateInitializationSignature_MODE_A() {
-        $merchant = new MerchantAccountManager(1, 'foo');
+        $merchant = new MerchantAccountManager('', 'foo');
         $hpp = $merchant->getHostedPaymentPageManager('foo', '02ruy9h8sdygfsi766', HostedPaymentPageManager::SIGNATURE_MODE_A);
 
         $payment = new HostedPayment(
@@ -27,7 +27,7 @@ class HostedPaymentPageManagerTest extends TestCase {
     }
 
     public function testGenerateInitializationRedirectUrl_MODE_A() {
-        $merchant = new MerchantAccountManager(1, 'foo');
+        $merchant = new MerchantAccountManager('', 'foo');
         $hpp = $merchant->getHostedPaymentPageManager('foo', '02ruy9h8sdygfsi766', HostedPaymentPageManager::SIGNATURE_MODE_A);
 
         $payment = new HostedPayment(
@@ -45,7 +45,7 @@ class HostedPaymentPageManagerTest extends TestCase {
     }
 
     public function testGenerateInitializationSignature_MODE_A_TS() {
-        $merchant = new MerchantAccountManager(1, 'foo');
+        $merchant = new MerchantAccountManager('', 'foo');
         $hpp = $merchant->getHostedPaymentPageManager('foo', '02ruy9h8sdygfsi766', HostedPaymentPageManager::SIGNATURE_MODE_A_TS);
 
         $payment = new HostedPayment(
@@ -64,7 +64,7 @@ class HostedPaymentPageManagerTest extends TestCase {
     }
 
     public function testGenerateInitializationRedirectUrl_MODE_A_TS() {
-        $merchant = new MerchantAccountManager(1, 'foo');
+        $merchant = new MerchantAccountManager('', 'foo');
         $hpp = $merchant->getHostedPaymentPageManager('foo', '02ruy9h8sdygfsi766', HostedPaymentPageManager::SIGNATURE_MODE_A_TS);
 
         $payment = new HostedPayment(
@@ -84,7 +84,7 @@ class HostedPaymentPageManagerTest extends TestCase {
     }
 
     public function testAssertCallbackSignature() {
-        $merchant = new MerchantAccountManager(1, 'foo');
+        $merchant = new MerchantAccountManager('', 'foo');
         $hpp = $merchant->getHostedPaymentPageManager('foo','ksadasu8h89ha');
 
         $hpp->assertCallbackSignature(

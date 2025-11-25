@@ -13,10 +13,10 @@ Initialize merchant account manager using merchant account identifier and secret
 ```php
 use Genome\Merchant\MerchantAccountManager;
 
-$merchantAccountId = 1;         // Your merchant account identifier
-$merchantAccountSecret = "foo"; // Your merchant account secret
+$merchantAccountLogin = "foo";  // Your merchant account login
+$merchantAccountSecret = "baz"; // Your merchant account password
 
-$accountManager = new MerchantAccountManager($merchantAccountId, $merchantAccountSecret);
+$accountManager = new MerchantAccountManager($merchantAccountLogin, $merchantAccountSecret);
 ```
 
 Then obtain hosted payment page manager from merchant account manager
